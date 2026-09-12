@@ -1,0 +1,1 @@
+# Recycle-garbage-image
