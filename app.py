@@ -212,10 +212,10 @@ if uploaded_file is not None:
         axis=0
     )
 
-    # MobileNetV2 preprocessing
-    image_array = tf.keras.applications.mobilenet_v2.preprocess_input(
-        image_array
-    )
+    # IMPORTANT:
+    # Do NOT apply preprocess_input here.
+    # The fine-tuned model already contains
+    # MobileNetV2 preprocessing.
 
     predictions = model.predict(
         image_array,
@@ -260,9 +260,9 @@ if uploaded_file is not None:
             waste_info[predicted_class]
         )
 
-# --------------------------------------------------
-# TOP 3 PREDICTIONS
-# --------------------------------------------------
+    # --------------------------------------------------
+    # TOP 3 PREDICTIONS
+    # --------------------------------------------------
 
     st.divider()
 
